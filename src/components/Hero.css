@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap");
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* 1. Grainy Texture for Luxury Feel */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+
+/* 2. Giant Background Text */
+.bg-text-giant {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  font-size: 28vw;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  z-index: 0;
+  letter-spacing: -1vw;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* 3. Hero Container */
+.hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+/* 4. Left Side Typography */
+.hero-left {
+  width: 45%;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: #666;
+  max-width: 300px;
+  line-height: 1.6;
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  font-size: clamp(60px, 7vw, 110px);
+  line-height: 0.95;
+  letter-spacing: -3px;
+  margin-bottom: 80px;
+}
+
+.hero-title .light {
+  color: #888;
+  font-weight: 300;
+}
+
+.hero-title .bold {
+  color: #111;
+  font-weight: 700;
+  font-size: larger;
+}
+
+/* 5. Gold Shimmer Effect */
+/* Add this to your DoctorCard.css */
+
+.gold-text {
+  background: linear-gradient(
+    to right,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Playfair Display", serif; /* Or any elegant serif */
+  letter-spacing: 0.5px;
+}
+
+.doctor-card {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: #0a0a0a;
+}
+
+/* Luxury Shimmer Effect on the whole card */
+.doctor-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes goldShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* 6. Side Indicator */
+.side-indicator {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.side-indicator .line {
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+}
+
+.side-indicator .num {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 2px;
+}
+
+/* 7. Image Asset */
+.hero-right {
+  position: absolute;
+  left: 54% !important;
+  top: 15%;
+  transform: translate(-50%, -50%); /* THIS centers perfectly */
+  width: 65vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-3d-asset {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 50px 80px rgba(0, 0, 0, 0.1));
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+/* 8. Right Text & Info */
+.hero-right-text {
+  position: absolute;
+  right: 100px;
+  top: 120px; /* Text ko uper kiya */
+  max-width: 260px;
+  text-align: left;
+  z-index: 5;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 80px;
+  background: #d4af37;
+  margin-bottom: 25px;
+}
+
+.hero-right-text p {
+  font-size: 22px;
+  line-height: 1.4;
+  color: #333;
+  font-weight: 400;
+}
+
+/* 7. Bottom Info Sections */
+.hero-bottom {
+  position: absolute;
+  bottom: 60px;
+  left: 100px;
+  display: flex;
+  gap: 60px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #999;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.val {
+  font-size: 14px;
+  color: #444;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #999;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.val {
+  font-size: 14px;
+  color: #444;
+}
+
+.hero-bottom-right {
+  position: absolute;
+  right: 100px;
+  bottom: -550px; /* Isko Doctor Card se upar set kiya */
+  text-align: left;
+}
+
+/* Mobile Optimization */
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 0 40px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-left,
+  .hero-right-text {
+    width: 100%;
+    position: static;
+  }
+  .hero-right {
+    position: relative;
+    width: 80vw;
+    right: 0;
+    margin-top: 40px;
+  }
+  .bg-text-giant {
+    font-size: 40vw;
+  }
+}

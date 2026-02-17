@@ -1,0 +1,132 @@
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #111;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* ============================= */
+/* SITE WRAPPER */
+/* ============================= */
+
+.site-wrapper {
+  position: relative;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* ============================= */
+/* MAIN CONTENT */
+/* ============================= */
+
+.hero,
+.achievements,
+.theme-section,
+.services-section,
+.curved-loop-jacket {
+  position: relative;
+  background: transparent;
+  z-index: 1;
+}
+
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
+
+.center-nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.center-nav a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease;
+}
+
+.center-nav a:hover {
+  color: #2a7fff; /* premium dental blue */
+}
+
+/* ============================= */
+/* MENU BUTTON */
+/* ============================= */
+
+.staggered-menu-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 2000;
+}
+
+.staggered-menu-header,
+.sm-toggle {
+  position: relative;
+  z-index: 2001;
+}
+
+/* ============================= */
+/* MENU PANEL */
+/* ============================= */
+
+.staggered-menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1999;
+  background: #ffffff;
+}
+
+/* ============================= */
+/* DOCTOR CARD */
+/* ============================= */
+
+.doctor-card-wrapper {
+  position: absolute;
+  right: 220px;
+  bottom: 180px;
+  z-index: 100;
+}
+
+.doctor-card {
+  position: relative;
+}
+
+.know-more {
+  position: absolute;
+}
+
+/* ============================= */
+/* TEXT STYLING */
+/* ============================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #111;
+  font-weight: 600;
+}
+
+p {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* OVERLAY (FOR TEAM PAGE ONLY) */
+/* ============================= */

@@ -1,0 +1,65 @@
+.parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+.scroller {
+  display: flex;
+  white-space: nowrap;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 2.25rem;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.scroller span {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .scroller {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
+.custom-scroll-text {
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+
+  background: linear-gradient(
+    120deg,
+    #8b6b2c 0%,
+    #c5a059 20%,
+    #f2d38a 35%,
+    #fff1c2 50%,
+    #f2d38a 65%,
+    #c5a059 80%,
+    #8b6b2c 100%
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: goldShimmer 4s linear infinite;
+
+  text-shadow:
+    0 0 6px rgba(197, 160, 89, 0.25),
+    0 0 12px rgba(197, 160, 89, 0.15);
+}
+
+/* GOLD SHIMMER MOTION */
+@keyframes goldShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}

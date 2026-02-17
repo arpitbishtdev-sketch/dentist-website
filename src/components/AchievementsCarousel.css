@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@300;700&display=swap");
+
+:root {
+  --gold-primary: #d4af37;
+  --gold-metallic: linear-gradient(
+    90deg,
+    #8a6d3b 0%,
+    #d4af37 25%,
+    #f7e08a 50%,
+    #d4af37 75%,
+    #8a6d3b 100%
+  );
+  --navy-dark: #0a192f;
+  --bg-cream: #fefcf9;
+}
+
+.achievements-section {
+  padding: 140px 0;
+  background-color: var(--bg-cream);
+  position: relative;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Background Depth Layers */
+.bg-glow-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(212, 175, 55, 0.08) 0%,
+    transparent 60%
+  );
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.bg-noise-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  pointer-events: none;
+}
+
+/* Header Styling */
+.achievements-header {
+  text-align: center;
+  margin-bottom: 90px;
+  position: relative;
+  z-index: 2;
+}
+
+.premium-tag {
+  display: inline-block;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 4px 15px;
+  border-radius: 50px;
+}
+
+.achievements-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 6vw, 56px);
+  color: var(--navy-dark);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+/* Carousel Mechanics */
+.carousel-main-wrapper {
+  position: relative;
+  padding: 80px 0;
+}
+
+/* Physical Beam Lines */
+.premium-beam {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-metallic);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+}
+
+.beam-top {
+  top: 0;
+}
+.beam-bottom {
+  bottom: 0;
+}
+
+.shimmer-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: shine-beam 4s infinite;
+}
+
+@keyframes shine-beam {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Marquee Logic */
+.marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  width: max-content;
+  animation: smoothScroll 45s linear infinite;
+}
+
+@keyframes smoothScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Logo Styling */
+.achievement-item {
+  width: 240px !important;
+  height: 160px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-vault {
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+}
+
+.logo-vault img {
+  max-width: 140%;
+  max-height: 190px !important; /* increase size */
+  filter: none !important;
+  object-fit: cover;
+
+  transition: all 0.6s ease;
+}
+
+.achievement-item:hover .logo-vault {
+  background: #ffffff;
+  border: 1px solid var(--gold-primary);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+}
+
+.achievement-item:hover img {
+  filter: grayscale(0) brightness(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .achievements-header h2 {
+    font-size: 30px;
+  }
+  .marquee-track {
+    gap: 60px;
+  }
+  .achievement-item {
+    width: 140px;
+  }
+}
