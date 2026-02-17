@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Footer.css";
+import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,14 +41,16 @@ export default function Footer() {
             dental artistry in the heart of Mumbai.
           </p>
           <div className="social-links">
-            <a href="#instagram" className="social-icon">
-              IG
+            <a href="#" className="social-icon instagram">
+              <FaInstagram />
             </a>
-            <a href="#linkedin" className="social-icon">
-              LN
+
+            <a href="#" className="social-icon linkedin">
+              <FaLinkedinIn />
             </a>
-            <a href="#facebook" className="social-icon">
-              FB
+
+            <a href="#" className="social-icon facebook">
+              <FaFacebookF />
             </a>
           </div>
         </div>

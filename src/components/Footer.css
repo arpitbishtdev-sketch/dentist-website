@@ -185,3 +185,45 @@
     justify-content: center;
   }
 }
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #bf953f;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+/* Instagram */
+.social-icon.instagram:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+  color: #fff;
+  border-color: transparent;
+}
+
+/* LinkedIn */
+.social-icon.linkedin:hover {
+  background: #0077b5;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Facebook */
+.social-icon.facebook:hover {
+  background: #1877f2;
+  color: #fff;
+  border-color: transparent;
+}
