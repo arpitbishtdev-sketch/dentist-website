@@ -260,6 +260,9 @@
 }
 
 @media (max-width: 1366px) {
+  .hero {
+    padding-top: 100px;
+  }
   .hero-container {
     padding: 0 60px;
   }
@@ -321,14 +324,15 @@
     left: auto !important;
     top: auto !important;
     transform: none !important;
-    width: 80% !important;
+    width: 100% !important;
     margin: 20px auto;
+    top: 20px !important;
     order: 2;
   }
 
   .hero-right-text {
     position: relative;
-    right: 20px;
+    right: 15px;
     width: 220px;
     top: auto;
     max-width: 80%;
@@ -367,6 +371,18 @@
   .hero-title {
     font-size: 12vw;
     letter-spacing: -2px;
+  }
+
+  .hero-right {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 120% !important;
+    margin: 20px auto;
+    top: 20px !important;
+    right: 65px !important;
+    order: 2;
   }
 
   .hero-container {
