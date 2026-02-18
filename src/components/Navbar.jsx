@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import StaggeredMenu from "./StaggeredMenu";
@@ -29,11 +29,38 @@ const centerNavItems = [
   { label: "Book Appointment", link: "/appointment", highlight: true },
 ];
 
+const mobileMenuItems = [
+  ...menuItems,
+  {
+    label: "Price",
+    ariaLabel: "View pricing",
+    link: "/price",
+  },
+  {
+    label: "Appointment",
+    ariaLabel: "Book appointment",
+    link: "/appointment",
+  },
+];
+
 const Navbar = () => {
   const navRef = useRef();
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  /* Detect screen resize */
   useEffect(() => {
-    /* initial state — ultra clean glass */
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  /* GSAP scroll animation */
+  useEffect(() => {
     gsap.set(navRef.current, {
       backgroundColor: "rgba(255,255,255,0)",
       backdropFilter: "blur(0px)",
@@ -41,20 +68,15 @@ const Navbar = () => {
       borderBottom: "1px solid rgba(0,0,0,0)",
     });
 
-    /* premium scroll animation */
     gsap.to(navRef.current, {
-      backgroundColor: "rgba(255,255,255,0.72)", // cleaner glass
-      backdropFilter: "blur(18px)", // stronger premium blur
-
+      backgroundColor: "rgba(255,255,255,0.72)",
+      backdropFilter: "blur(18px)",
       boxShadow: `
-      0 4px 20px rgba(0,0,0,0.06),
-      0 1px 0 rgba(255,255,255,0.6) inset
-    `,
-
+        0 4px 20px rgba(0,0,0,0.06),
+        0 1px 0 rgba(255,255,255,0.6) inset
+      `,
       borderBottom: "1px solid rgba(0,0,0,0.06)",
-
       ease: "power2.out",
-
       scrollTrigger: {
         trigger: document.body,
         start: "top -60",
@@ -66,7 +88,7 @@ const Navbar = () => {
 
   return (
     <div ref={navRef} className="navbar-wrapper">
-      {/* CENTER NAV */}
+      {/* CENTER NAV (desktop only) */}
       <div className="center-nav">
         {centerNavItems.map((item, index) => (
           <a
@@ -83,7 +105,7 @@ const Navbar = () => {
       <StaggeredMenu
         isFixed={true}
         position="right"
-        items={menuItems}
+        items={isMobile ? mobileMenuItems : menuItems}
         socialItems={socialItems}
         displaySocials={true}
         displayItemNumbering={true}

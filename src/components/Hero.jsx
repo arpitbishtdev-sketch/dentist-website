@@ -26,6 +26,7 @@ export default function Hero() {
 
   // MAGNETIC PARALLAX LOGIC
   const handleMouseMove = (e) => {
+    if (window.innerWidth < 1024) return;
     if (!imageRef.current) return;
     const rect = imageRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -174,17 +175,20 @@ export default function Hero() {
           {/* RIGHT TEXT */}
           <div className="hero-right-text animate-right">
             <div className="vertical-line"></div>
+
             <p>
               Select from our team of highly skilled and experienced dentists
             </p>
+
+            {/* ADD THIS HERE */}
+            <DoctorCard onOpenTeam={(rect) => setExpandRect(rect)} />
+
             <div className="hero-bottom-right">
               <span className="label">TECHNOLOGY</span>
               <span className="val">Advanced AI Diagnostic</span>
             </div>
           </div>
         </div>
-
-        <DoctorCard onOpenTeam={(rect) => setExpandRect(rect)} />
       </section>
 
       <CurvedLoop

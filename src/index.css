@@ -93,12 +93,12 @@ body {
 /* DOCTOR CARD */
 /* ============================= */
 
-.doctor-card-wrapper {
+/* .doctor-card-wrapper {
   position: absolute;
   right: 220px;
   bottom: 180px;
   z-index: 100;
-}
+} */
 
 .doctor-card {
   position: relative;

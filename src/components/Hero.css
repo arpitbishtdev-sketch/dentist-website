@@ -177,14 +177,20 @@
   }
 }
 
-/* 8. Right Text & Info */
 .hero-right-text {
   position: absolute;
-  right: 100px;
-  top: 120px; /* Text ko uper kiya */
-  max-width: 260px;
+  right: clamp(20px, 6vw, 100px);
+  top: clamp(80px, 10vw, 120px);
+
+  width: clamp(220px, 20vw, 260px);
+
   text-align: left;
   z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
 }
 
 .vertical-line {
@@ -249,157 +255,126 @@
 .hero-bottom-right {
   position: absolute;
   right: 100px;
-  bottom: -550px; /* Isko Doctor Card se upar set kiya */
+  bottom: -100px; /* Isko Doctor Card se upar set kiya */
   text-align: left;
+}
+
+@media (max-width: 1366px) {
+  .hero-container {
+    padding: 0 60px;
+  }
+  .hero-title {
+    font-size: 5.5vw;
+  }
+  .hero-right {
+    width: 45vw !important;
+  }
+  .doctor-card-wrapper {
+    right: 60px; /* Bring it in from the edge */
+    bottom: 280px;
+  }
+  .hero-right-text {
+    right: 40px;
+    width: 240px;
+  }
 }
 
 /* ============================= */
 /* TABLET (iPad, 1024px and below) */
 /* ============================= */
-
 @media (max-width: 1024px) {
   .hero {
-    min-height: auto;
-    padding-top: 120px;
-    padding-bottom: 80px;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-container {
-    padding: 0 40px;
+    padding: 120px 40px 40px 40px;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     text-align: center;
+    gap: 40px;
   }
 
   .hero-left {
     width: 100%;
-    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-sub {
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-    font-size: 16px;
+    margin-bottom: 30px;
   }
 
   .hero-title {
-    font-size: clamp(48px, 8vw, 72px);
+    font-size: 8vw;
     margin-bottom: 40px;
   }
 
-  /* CENTER IMAGE */
+  /* Center the image in the flow, not absolute */
   .hero-right {
-    position: relative;
+    position: relative !important;
     left: auto !important;
     top: auto !important;
     transform: none !important;
-    width: 70vw !important;
-    margin: 40px auto;
+    width: 80% !important;
+    margin: 20px auto;
     order: 2;
   }
 
   .hero-right-text {
     position: relative;
-    right: auto;
+    right: 20px;
+    width: 220px;
     top: auto;
-    margin: 30px auto;
+    max-width: 80%;
+    margin: 0 auto;
     text-align: center;
-    max-width: 400px;
     order: 3;
+  }
+
+  .vertical-line {
+    margin: 0 auto 20px auto;
   }
 
   .hero-bottom {
     position: relative;
-    bottom: auto;
     left: auto;
+    bottom: auto;
+    margin-top: 40px;
+    width: 100%;
     justify-content: center;
-    margin-top: 30px;
-    gap: 40px;
+    order: 5;
   }
 
   .hero-bottom-right {
     position: relative;
     right: auto;
     bottom: auto;
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .side-indicator {
-    display: none;
-  }
-
-  .bg-text-giant {
-    font-size: 35vw;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: -200px;
+    order: 4;
   }
 }
 
 /* ============================= */
 /* MOBILE (768px and below) */
 /* ============================= */
-
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 100px;
-    padding-bottom: 60px;
+  .hero-title {
+    font-size: 12vw;
+    letter-spacing: -2px;
   }
 
   .hero-container {
-    padding: 0 20px;
-  }
-
-  .hero-title {
-    font-size: clamp(36px, 10vw, 52px);
-    letter-spacing: -1px;
-  }
-
-  .hero-sub {
-    font-size: 15px;
-  }
-
-  .hero-right {
-    width: 90vw !important;
-  }
-
-  .hero-right-text p {
-    font-size: 18px;
+    padding-top: 80px;
   }
 
   .bg-text-giant {
-    font-size: 45vw;
-    top: 50%;
-  }
-}
-
-/* ============================= */
-/* SMALL MOBILE (480px and below) */
-/* ============================= */
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 34px;
-  }
-
-  .hero-sub {
-    font-size: 14px;
-  }
-
-  .hero-right {
-    width: 95vw !important;
-  }
-
-  .hero-right-text p {
-    font-size: 16px;
-  }
-
-  .hero-bottom {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .bg-text-giant {
-    font-size: 55vw;
+    font-size: 40vw;
+    top: 30%;
   }
 }

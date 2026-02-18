@@ -1,13 +1,27 @@
 .doctor-card-wrapper {
-  position: absolute;
-  z-index: 20000;
-  pointer-events: auto;
+  position: relative;
 
-  right: 120px;
-  bottom: 350px;
+  margin-top: 30px;
 
   width: 260px;
   height: 340px;
+
+  transform: translateX(clamp(0px, 2vw, 40px));
+
+  animation: doctorFloat 6s ease-in-out infinite;
+
+  z-index: 5;
+}
+
+@keyframes doctorFloat {
+  0%,
+  100% {
+    transform: translateX(clamp(0px, 2vw, 40px)) translateY(0px);
+  }
+
+  50% {
+    transform: translateX(clamp(0px, 2vw, 40px)) translateY(-14px);
+  }
 }
 
 /* CARD */
@@ -143,90 +157,37 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
-/* ============================= */
-/* TABLET (≤1024px) */
-/* ============================= */
+/* Medium laptops */
+@media (max-width: 1366px) {
+  .doctor-card-wrapper {
+    --card-offset: 80px;
+    top: 50px;
+  }
+}
 
+/* Small laptops */
+@media (max-width: 1200px) {
+  .doctor-card-wrapper {
+    --card-offset: 120px;
+  }
+}
+
+/* Tablet */
 @media (max-width: 1024px) {
   .doctor-card-wrapper {
-    position: relative;
-
-    right: auto;
-    bottom: auto;
-
-    margin: 40px auto 0 auto;
-
-    width: 240px;
-    height: 320px;
-
-    display: flex;
-    justify-content: center;
-  }
-
-  .doctor-card {
-    width: 240px;
-    height: 320px;
+    margin-bottom: 150px;
+    margin-left: 40px;
   }
 }
 
-/* ============================= */
-/* MOBILE (≤768px) */
-/* ============================= */
-
+/* Mobile */
 @media (max-width: 768px) {
   .doctor-card-wrapper {
-    margin: 30px auto 0 auto;
-
-    width: 220px;
-    height: 300px;
-  }
-
-  .doctor-card {
-    width: 220px;
-    height: 300px;
-
-    border-radius: 14px;
-
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.18),
-      0 3px 8px rgba(0, 0, 0, 0.12);
-  }
-
-  .doctor-name {
-    font-size: 15px;
-  }
-
-  .doctor-role {
-    font-size: 12px;
-  }
-
-  .know-more {
-    font-size: 12px;
-    top: 12px;
-    right: 14px;
-  }
-}
-
-/* ============================= */
-/* SMALL MOBILE (≤480px) */
-/* ============================= */
-
-@media (max-width: 480px) {
-  .doctor-card-wrapper {
     width: 200px;
     height: 280px;
-  }
-
-  .doctor-card {
-    width: 200px;
-    height: 280px;
-  }
-
-  .doctor-name {
-    font-size: 14px;
-  }
-
-  .doctor-role {
-    font-size: 11px;
+    margin-bottom: 200px !important;
+    margin-left: 40px !important;
+    margin: 20px auto;
+    --card-x: 0px;
   }
 }
