@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  padding-top: 50px;
 }
 
 .booking-card {
@@ -153,6 +154,9 @@ select:focus {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .page-wrapper {
+    padding-top: 100px;
+  }
   .booking-card {
     flex-direction: column;
     height: auto;
@@ -161,5 +165,11 @@ select:focus {
     height: 300px;
     flex: none;
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding-top: 100px;
   }
 }
